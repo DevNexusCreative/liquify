@@ -19,9 +19,7 @@
         "text_headline": "This doesnt have to change",
         "richtext_text": "<p>This as well</p>",
         "url_button_link": "",
-        "text_button_text": "More Information",
-        "url_button_link_2": "",
-        "text_button_text_2": "More Information"
+        "text_button_text": "More Information"
       }
     },
     "category": {
@@ -58,11 +56,17 @@
         "text_artikel_3_titel": "Blog title heading will go here",
         "text_artikel_3_excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
       }
+    },
+    "home_hero_new_UtYYjd": {
+      "type": "home_hero_new",
+      "name": "home-hero-new",
+      "settings": {}
     }
   },
   "layout": "theme",
   "wrapper": "main.main-wrapper",
   "order": [
+    "home_hero_new_UtYYjd",
     "liquify_hero",
     "hero",
     "category",
