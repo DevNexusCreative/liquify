@@ -39,6 +39,11 @@
       "type": "cta",
       "name": "CTA",
       "settings": {}
+    },
+    "scroll_Bg93pP": {
+      "type": "scroll",
+      "name": "scroll",
+      "settings": {}
     }
   },
   "layout": "theme",
@@ -47,6 +52,7 @@
     "home_hero_new_UtYYjd",
     "products_6RaRDX",
     "categories_akaWC9",
+    "scroll_Bg93pP",
     "testimonials_LKUVTw",
     "cta_AhmWUB"
   ]
