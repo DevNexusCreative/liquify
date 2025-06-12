@@ -42,7 +42,9 @@
 }
 </style><meta name="theme-color" content="#000" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#fff" media="(prefers-color-scheme: dark)">
-<script src="{{ '_helper.js' | asset_url }}" type="text/javascript"></script>{{ content_for_header }}</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; width: 0; height: 0;"><defs><mask id="mask-shape" maskunits="userSpaceOnUse" x="0" y="0" width="223" height="52"><!--  the white shape is the &ldquo;show&rdquo; area of the mask  -->
+<path d="M9.56328 2.98036C11.082 1.25636 13.2686 0.268555 15.5662 0.268555H215C219.418 0.268555 223 3.85028 223 8.26855V33.5851C223 35.9228 221.978 38.1435 220.201 39.6634L208.885 49.3469C207.436 50.587 205.591 51.2686 203.684 51.2686H8.5C4.08172 51.2686 0.5 47.6868 0.5 43.2686V37.2686V24.7686V16.2898C0.5 14.3427 1.21006 12.4625 2.49709 11.0016L9.56328 2.98036Z" fill="white"></path></mask></defs></svg><script src="{{ '_helper.js' | asset_url }}" type="text/javascript"></script>{{ content_for_header }}</head>
 <body>
 
 <div class="page-wrapper">{% render 'global_styles' %}
@@ -54,6 +56,97 @@
    $(".w-tab-pane").removeClass("w--tab-active");
    $(".w-tab-link:nth-child(1)").addClass("w--current");
    $(".w-tab-pane:nth-child(1)").addClass("w--tab-active");
+</script><script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script><script>$(".slider-main_component").each(function (index) {
+  let loopMode = false;
+  if ($(this).attr("loop-mode") === "true") {
+    loopMode = true;
+  }
+  let sliderDuration = 300;
+  if ($(this).attr("slider-duration") !== undefined) {
+    sliderDuration = +$(this).attr("slider-duration");
+  }
+  const swiper = new Swiper($(this).find(".swiper")[0], {
+    speed: sliderDuration,
+    loop: loopMode,
+    autoHeight: false,
+    centeredSlides: false,
+    followFinger: true,
+    freeMode: false,
+    slideToClickedSlide: false,
+    slidesPerView: 1,
+    spaceBetween: 32,
+    rewind: false,
+    mousewheel: {
+      forceToAxis: true
+    },
+    keyboard: {
+      enabled: true,
+      onlyInViewport: true
+    },
+    breakpoints: {
+      // mobile landscape
+      480: {
+        slidesPerView: 1,
+        spaceBetween: 16
+      },
+      // tablet
+      768: {
+        slidesPerView: 1.5,
+        spaceBetween: 20
+      },
+      // desktop
+      992: {
+        slidesPerView: 1.6,
+        spaceBetween: 20
+      }
+    },
+    pagination: {
+      el: $(this).find(".swiper-bullet-wrapper")[0],
+      bulletActiveClass: "is-active",
+      bulletClass: "swiper-bullet",
+      bulletElement: "button",
+      clickable: true
+    },
+    navigation: {
+      nextEl: $(this).find(".swiper-next")[0],
+      prevEl: $(this).find(".swiper-prev")[0],
+      disabledClass: "is-disabled"
+    },
+    scrollbar: {
+      el: $(this).find(".swiper-drag-wrapper")[0],
+      draggable: true,
+      dragClass: "swiper-drag",
+      snapOnRelease: true
+    },
+    slideActiveClass: "is-active",
+    slideDuplicateActiveClass: "is-active"
+  });
+});
+</script><script>const audio = document.getElementById('bg-audio');
+  const hoverTargets = document.querySelectorAll('.products_list-item');
+  let fadeInterval;
+  // Start audio after first user interaction
+  document.addEventListener('click', () => {
+    audio.volume = 0;
+    audio.play().catch(e => console.warn('Playback failed:', e));
+  }, { once: true });
+  function fadeVolume(to, duration = 300) {
+    clearInterval(fadeInterval);
+    const steps = 30;
+    const stepTime = duration / steps;
+    const start = audio.volume;
+    const diff = to - start;
+    let i = 0;
+    fadeInterval = setInterval(() => {
+      i++;
+      audio.volume = Math.min(Math.max(start + (diff * (i / steps)), 0), 1);
+      if (i >= steps) clearInterval(fadeInterval);
+    }, stepTime);
+  }
+  hoverTargets.forEach(target => {
+    target.addEventListener('mouseenter', () => fadeVolume(0.2));
+    target.addEventListener('mouseleave', () => fadeVolume(0));
+  });
 </script>
 </body>
 </html>
