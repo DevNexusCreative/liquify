@@ -17,7 +17,18 @@
     "products_6RaRDX": {
       "type": "products",
       "name": "Products",
-      "settings": {}
+      "settings": {
+        "collection_collection": "sabers",
+        "collection_collection_limit": 6
+      }
+    },
+    "categories_akaWC9": {
+      "type": "categories",
+      "name": "Categories",
+      "settings": {
+        "collection_collection": "sabers",
+        "collection_collection_limit": 6
+      }
     },
     "testimonials_LKUVTw": {
       "type": "testimonials",
@@ -27,11 +38,6 @@
     "cta_AhmWUB": {
       "type": "cta",
       "name": "CTA",
-      "settings": {}
-    },
-    "categories_akaWC9": {
-      "type": "categories",
-      "name": "Categories",
       "settings": {}
     }
   },
