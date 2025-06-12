@@ -9,57 +9,29 @@
  */
 {
   "sections": {
-    "liquify_hero": {
-      "type": "liquify_hero",
-      "settings": {}
-    },
-    "hero": {
-      "type": "hero",
-      "settings": {
-        "text_headline": "This doesnt have to change",
-        "richtext_text": "<p>This as well</p>",
-        "url_button_link": "",
-        "text_button_text": "More Information"
-      }
-    },
-    "category": {
-      "type": "category",
-      "settings": {
-        "text_headline": "Short heading here",
-        "url_button_link": "",
-        "text_button_text": "All products",
-        "collection_collection": "sabers",
-        "collection_collection_limit": 6
-      }
-    },
-    "links": {
-      "type": "links",
-      "settings": {
-        "text_headline": "Short heading here"
-      }
-    },
-    "content": {
-      "type": "content",
-      "settings": {
-        "text_headline": "Short heading here",
-        "text_button_text": "All Articles",
-        "url_button_link": "",
-        "url_artikel_1_link": "",
-        "text_artikel_1_titel": "Blog title heading will go here",
-        "text_artikel_1_excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-        "article_artikel_2": "",
-        "url_artikel_2_link": "",
-        "text_artikel_2_titel": "Blog title heading will go here",
-        "text_artikel_2_excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros.",
-        "article_artikel_3": "",
-        "url_artikel_3_link": "",
-        "text_artikel_3_titel": "Blog title heading will go here",
-        "text_artikel_3_excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros."
-      }
-    },
     "home_hero_new_UtYYjd": {
       "type": "home_hero_new",
       "name": "home-hero-new",
+      "settings": {}
+    },
+    "products_6RaRDX": {
+      "type": "products",
+      "name": "Products",
+      "settings": {}
+    },
+    "testimonials_LKUVTw": {
+      "type": "testimonials",
+      "name": "Testimonials",
+      "settings": {}
+    },
+    "cta_AhmWUB": {
+      "type": "cta",
+      "name": "CTA",
+      "settings": {}
+    },
+    "categories_akaWC9": {
+      "type": "categories",
+      "name": "Categories",
       "settings": {}
     }
   },
@@ -67,10 +39,9 @@
   "wrapper": "main.main-wrapper",
   "order": [
     "home_hero_new_UtYYjd",
-    "liquify_hero",
-    "hero",
-    "category",
-    "links",
-    "content"
+    "products_6RaRDX",
+    "categories_akaWC9",
+    "testimonials_LKUVTw",
+    "cta_AhmWUB"
   ]
 }
