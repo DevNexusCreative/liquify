@@ -5,13 +5,15 @@
 </div></div><div class="product_list-wrapper w-dyn-list"><div role="list" class="product_list w-dyn-items">{% for product in section.settings.collection_collection.products limit: section.settings.collection_collection_limit %}
 <div role="listitem" class="product_list-item w-dyn-item">
     
-    <div data-w-id="5e1d2ddc-c523-db1d-5e43-7132e2afce63" class="products_list-item"><div class="product_list-item_inner"><div class="product_list-item_bg"><img src="{{ 'Texture.svg' | asset_url }}" loading="lazy" alt="" class="cover-image">
-</div><div class="product_list-item_image-wrapper"><img src="{{ 'Group-7.png' | asset_url }}" loading="lazy" alt="" class="product_list-item_image">
-<div class="product_list-item_cat-img-wrapper"><img src="{{ 'image-13.svg' | asset_url }}" loading="lazy" alt="" class="image-contain">
-</div></div><div class="product_list-item_text-wrap"><h3 class="heading-style-h4">Lord Luke</h3><div class="product_list-item_price-wrap text-size-medium"><div class="text-color-grey text-style-strikethrough">$489.99</div><div class="text-weight-semibold">$309.99</div></div><div class="margin-top margin-small"><a href="#" class="button is-secondary w-button">WATCH VIDEO</a></div></div></div><div class="product_list-item_outer"><div class="product_list-item_outer-border"></div><div class="product_list-item_outer-bg"></div></div><div class="product_stars"><div class="stars-top"><img src="{{ 'Stars.svg' | asset_url }}" loading="lazy" alt="" class="cover-image">
-</div><div class="stars-bot"><img src="{{ 'Stars.svg' | asset_url }}" loading="lazy" alt="" class="cover-image">
-</div></div></div>
+    {% render 'product_item', product: product %}
+
     
 </div>
 {% endfor %}
-</div><div class="hide w-dyn-empty"><div>No items found.</div></div></div></div></div></div> {% schema %} {"tag":"section","name":"Category","class":"section_product","settings":[{"id":"text_headline","type":"text","label":"Headline","default":"Short heading here"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"All products"},{"id":"collection_collection","type":"collection","label":"Collection"},{"type":"range","id":"collection_collection_limit","min":1,"max":99,"step":1,"label":"Limit: Collection","default":6}],"presets":[{"name":"Category","category":"Liquify","blocks":[]}]} {% endschema %}
+</div><div class="hide w-dyn-empty"><div>No items found.</div></div></div><div li-for:inside="product in collection.products" class="product_list">
+        {% for product in collection.products %}                            
+                            {% render 'product_item', product: product %}
+
+                            
+                    {% endfor %}    </div>
+</div></div></div> {% schema %} {"tag":"section","name":"Category","class":"section_product","settings":[{"id":"text_headline","type":"text","label":"Headline","default":"Short heading here"},{"id":"url_button_link","type":"url","label":"Button-Link"},{"id":"text_button_text","type":"text","label":"Button-Text","default":"All products"},{"id":"collection_collection","type":"collection","label":"Collection"},{"type":"range","id":"collection_collection_limit","min":1,"max":99,"step":1,"label":"Limit: Collection","default":6}],"presets":[{"name":"Category","category":"Liquify","blocks":[]}]} {% endschema %}
