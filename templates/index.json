@@ -16,10 +16,12 @@
     "hero": {
       "type": "hero",
       "settings": {
-        "text_headline": "Hello new text",
-        "richtext_text": "<p>ettsttstdstsadtastdastads</p>",
+        "text_headline": "This doesnt have to change",
+        "richtext_text": "<p>This as well</p>",
         "url_button_link": "",
-        "text_button_text": "More Information"
+        "text_button_text": "More Information",
+        "url_button_link_2": "",
+        "text_button_text_2": "More Information"
       }
     },
     "category": {
