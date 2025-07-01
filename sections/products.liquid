@@ -1,18 +1,11 @@
-<div class="padding-global"><div class="container-large"><div class="padding-section-huge"><div class="margin-bottom margin-xlarge"><div class="align-center text-align-center max-width-custom1"><div class="margin-bottom margin-small"><div class="button-group is-center"><div class="tag-wrapper"><div class="text-size-tiny text-weight-semibold text-style-allcaps"><div>✼</div></div><div class="text-size-tiny text-weight-semibold text-style-allcaps"><div>best sellers</div></div></div></div></div><h2>A collection of our best products</h2></div></div><div class="product_list">{% for product in collections.sabers.products %}    <div li-for="product in collections.sabers.products" class="product_list-item">
+<div class="padding-global"><div class="container-large"><div class="padding-section-huge"><div class="margin-bottom margin-xlarge"><div class="align-center text-align-center max-width-custom1"><div class="margin-bottom margin-small"><div class="button-group is-center"><div class="tag-wrapper"><div class="text-size-tiny text-weight-semibold text-style-allcaps"><div>✼</div></div><div class="text-size-tiny text-weight-semibold text-style-allcaps"><div>best sellers</div></div></div></div></div><h2>A collection of our best products</h2></div></div><div class="product_list">{% for product in product.metafields.custom.colors.red-sabers %}    <div li-for="product in product.metafields.custom.colors.red-sabers" class="product_list-item">
                                     
-                            {% for color in product.metafields.custom.colours_object.value %}    <div li-for="color in product.metafields.custom.colours_object.value">
-                                    
-                            {% if color.name == 'Red' %}    <div li-if="color.name == 'Red'">
-    <div data-w-id="5e1d2ddc-c523-db1d-5e43-7132e2afce63" class="products_list-item"><div class="product_list-item_inner"><div class="product_list-item_bg"><img src="{{ 'Texture.svg' | asset_url }}" loading="lazy" alt="" class="cover-image">
+                            <div data-w-id="5e1d2ddc-c523-db1d-5e43-7132e2afce63" class="products_list-item"><div class="product_list-item_inner"><div class="product_list-item_bg"><img src="{{ 'Texture.svg' | asset_url }}" loading="lazy" alt="" class="cover-image">
 </div><div class="product_list-item_image-wrapper"><img src="{{ 'Group-7.png' | asset_url }}" loading="lazy" alt="" class="product_list-item_image">
 <div class="product_list-item_cat-img-wrapper"><img src="{{ 'image-13.svg' | asset_url }}" loading="lazy" alt="" class="image-contain">
 </div></div><div class="product_list-item_text-wrap"><h3 li-object="product.title" class="heading-style-h4">{{ product.title }}</h3><div class="product_list-item_price-wrap text-size-medium"><div class="text-color-grey text-style-strikethrough">$489.99</div><div class="text-weight-semibold">$309.99</div></div><div class="margin-top margin-small"><a href="#" class="button is-secondary w-button">WATCH VIDEO</a></div></div></div><div class="product_list-item_outer"><div class="product_list-item_outer-border"></div><div class="product_list-item_outer-bg"></div></div><div class="product_stars"><div class="stars-top"><img src="{{ 'Stars.svg' | asset_url }}" loading="lazy" alt="" class="cover-image">
 </div><div class="stars-bot"><img src="{{ 'Stars.svg' | asset_url }}" loading="lazy" alt="" class="cover-image">
-</div></div></div>    </div>
-{% endif %}
-                            
-                        </div>
-{% endfor %}
+</div></div></div>
                             
                         </div>
 {% endfor %}</div></div></div></div> {% schema %} {"tag":"div","name":"Products","class":"section_products","presets":[{"name":"Products","category":"Liquify","blocks":[]}]} {% endschema %}
