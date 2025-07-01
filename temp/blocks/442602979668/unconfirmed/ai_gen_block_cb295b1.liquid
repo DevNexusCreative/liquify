@@ -1,6 +1,595 @@
+{% doc %}
+  @prompt
+    Create a product list section that filters and displays only products with a red color attribute or metafield, with customizable grid layout and styling options for showcasing red products
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .red-products-{{ ai_gen_id }} {
+    margin: {{ block.settings.margin_top }}px 0 {{ block.settings.margin_bottom }}px 0;
+  }
+
+  .red-products-header-{{ ai_gen_id }} {
+    text-align: {{ block.settings.text_alignment }};
+    margin-bottom: 30px;
+  }
+
+  .red-products-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.heading_size }}px;
+    color: {{ block.settings.heading_color }};
+    margin: 0 0 10px 0;
+  }
+
+  .red-products-description-{{ ai_gen_id }} {
+    font-size: {{ block.settings.text_size }}px;
+    color: {{ block.settings.text_color }};
+  }
+
+  .red-products-grid-{{ ai_gen_id }} {
+    display: grid;
+    grid-template-columns: repeat({{ block.settings.columns_desktop }}, 1fr);
+    gap: {{ block.settings.grid_gap }}px;
+  }
+
+  .red-product-card-{{ ai_gen_id }} {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: {{ block.settings.card_border_radius }}px;
+    overflow: hidden;
+    background-color: {{ block.settings.card_background_color }};
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  {% if block.settings.enable_hover_effect %}
+  .red-product-card-{{ ai_gen_id }}:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  {% endif %}
+
+  .red-product-image-wrapper-{{ ai_gen_id }} {
+    position: relative;
+    padding-bottom: {{ block.settings.image_ratio }}%;
+    overflow: hidden;
+  }
+
+  .red-product-image-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: {{ block.settings.image_fit }};
+  }
+
+  .red-product-placeholder-{{ ai_gen_id }} {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f4f4f4;
+  }
+
+  .red-product-placeholder-{{ ai_gen_id }} svg {
+    width: 50%;
+    height: 50%;
+    opacity: 0.5;
+  }
+
+  .red-product-info-{{ ai_gen_id }} {
+    padding: 15px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .red-product-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.product_title_size }}px;
+    color: {{ block.settings.product_title_color }};
+    margin: 0 0 10px 0;
+    font-weight: 500;
+  }
+
+  .red-product-price-{{ ai_gen_id }} {
+    font-size: {{ block.settings.price_size }}px;
+    color: {{ block.settings.price_color }};
+    margin: 0 0 15px 0;
+  }
+
+  .red-product-color-tag-{{ ai_gen_id }} {
+    display: inline-block;
+    background-color: #ff0000;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+
+  .red-product-button-{{ ai_gen_id }} {
+    display: inline-block;
+    background-color: {{ block.settings.button_color }};
+    color: {{ block.settings.button_text_color }};
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: {{ block.settings.button_border_radius }}px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+  }
+
+  .red-product-button-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.button_hover_color }};
+  }
+
+  .red-products-empty-{{ ai_gen_id }} {
+    text-align: center;
+    padding: 40px 20px;
+    color: {{ block.settings.text_color }};
+    font-size: {{ block.settings.text_size }}px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .red-products-grid-{{ ai_gen_id }} {
+      grid-template-columns: repeat({{ block.settings.columns_mobile }}, 1fr);
+    }
+    
+    .red-products-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.heading_size | times: 0.8 }}px;
+    }
+    
+    .red-product-title-{{ ai_gen_id }} {
+      font-size: {{ block.settings.product_title_size | times: 0.9 }}px;
+    }
+  }
+{% endstyle %}
+
+<div class="red-products-{{ ai_gen_id }}" {{ block.shopify_attributes }}>
+  <div class="red-products-header-{{ ai_gen_id }}">
+    {% if block.settings.title != blank %}
+      <h2 class="red-products-title-{{ ai_gen_id }}">{{ block.settings.title }}</h2>
+    {% endif %}
+    
+    {% if block.settings.description != blank %}
+      <div class="red-products-description-{{ ai_gen_id }}">{{ block.settings.description }}</div>
+    {% endif %}
+  </div>
+
+  {% liquid
+    assign red_products = ""
+    assign collection = collections[block.settings.collection]
+    assign product_limit = block.settings.products_to_show
+    assign red_color_tag = block.settings.color_tag
+    assign red_color_metafield = block.settings.color_metafield
+    assign red_products_count = 0
+    
+    if collection != blank
+      for product in collection.products limit: 50
+        assign is_red_product = false
+        
+        if red_color_tag != blank and product.tags contains red_color_tag
+          assign is_red_product = true
+        endif
+        
+        if red_color_metafield != blank and product.metafields.color.value == red_color_metafield
+          assign is_red_product = true
+        endif
+        
+        if is_red_product
+          assign red_products_count = red_products_count | plus: 1
+          
+          if red_products == ""
+            assign red_products = product
+          else
+            assign red_products = red_products | append: "," | append: product
+          endif
+          
+          if red_products_count >= product_limit
+            break
+          endif
+        endif
+      endfor
+    endif
+  %}
+
+  {% if red_products_count > 0 %}
+    <div class="red-products-grid-{{ ai_gen_id }}">
+      {% for product in collection.products limit: 50 %}
+        {% liquid
+          assign is_red_product = false
+          
+          if red_color_tag != blank and product.tags contains red_color_tag
+            assign is_red_product = true
+          endif
+          
+          if red_color_metafield != blank and product.metafields.color.value == red_color_metafield
+            assign is_red_product = true
+          endif
+        %}
+        
+        {% if is_red_product and forloop.index <= product_limit %}
+          <div class="red-product-card-{{ ai_gen_id }}">
+            <a href="{{ product.url }}" class="red-product-image-wrapper-{{ ai_gen_id }}">
+              {% if product.featured_image %}
+                <img
+                  src="{{ product.featured_image | image_url: width: 500 }}"
+                  alt="{{ product.featured_image.alt | escape }}"
+                  loading="lazy"
+                  class="red-product-image-{{ ai_gen_id }}"
+                  width="{{ product.featured_image.width }}"
+                  height="{{ product.featured_image.height }}"
+                >
+              {% else %}
+                <div class="red-product-placeholder-{{ ai_gen_id }}">
+                  {{ 'product-apparel-1' | placeholder_svg_tag }}
+                </div>
+              {% endif %}
+            </a>
+            
+            <div class="red-product-info-{{ ai_gen_id }}">
+              {% if block.settings.show_color_tag %}
+                <span class="red-product-color-tag-{{ ai_gen_id }}">Red</span>
+              {% endif %}
+              
+              <h3 class="red-product-title-{{ ai_gen_id }}">{{ product.title }}</h3>
+              
+              {% if block.settings.show_price %}
+                <div class="red-product-price-{{ ai_gen_id }}">
+                  {% if product.price_varies %}
+                    {{ product.price_min | money }} - {{ product.price_max | money }}
+                  {% else %}
+                    {{ product.price | money }}
+                  {% endif %}
+                </div>
+              {% endif %}
+              
+              {% if block.settings.show_button %}
+                <a href="{{ product.url }}" class="red-product-button-{{ ai_gen_id }}">
+                  {{ block.settings.button_text }}
+                </a>
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="red-products-empty-{{ ai_gen_id }}">
+      {{ block.settings.empty_state_text }}
+    </div>
+  {% endif %}
+</div>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Red Products",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Red Products Collection"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Shop our selection of red products.</p>"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection to filter"
+    },
+    {
+      "type": "text",
+      "id": "color_tag",
+      "label": "Red color tag",
+      "default": "red",
+      "info": "Product tag that identifies red products (e.g., 'red', 'color:red')"
+    },
+    {
+      "type": "text",
+      "id": "color_metafield",
+      "label": "Red color metafield value",
+      "default": "red",
+      "info": "Value in color metafield that identifies red products"
+    },
+    {
+      "type": "text",
+      "id": "empty_state_text",
+      "label": "No products message",
+      "default": "No red products found in this collection."
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 20,
+      "step": 1,
+      "default": 8,
+      "label": "Maximum products to show"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Text alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "Columns on desktop"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "label": "Columns on mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1"
+        },
+        {
+          "value": "2",
+          "label": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "min": 10,
+      "max": 40,
+      "step": 5,
+      "default": 20,
+      "unit": "px",
+      "label": "Grid spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px",
+      "label": "Top margin"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 30,
+      "unit": "px",
+      "label": "Bottom margin"
+    },
+    {
+      "type": "header",
+      "content": "Product Cards"
+    },
+    {
+      "type": "range",
+      "id": "card_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 8,
+      "unit": "px",
+      "label": "Card border radius"
+    },
+    {
+      "type": "color",
+      "id": "card_background_color",
+      "label": "Card background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_hover_effect",
+      "label": "Enable hover effect",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Product Image"
+    },
+    {
+      "type": "range",
+      "id": "image_ratio",
+      "min": 50,
+      "max": 150,
+      "step": 5,
+      "default": 100,
+      "unit": "%",
+      "label": "Image aspect ratio"
+    },
+    {
+      "type": "select",
+      "id": "image_fit",
+      "label": "Image fit",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "header",
+      "content": "Product Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_color_tag",
+      "label": "Show 'Red' tag",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "product_title_size",
+      "min": 12,
+      "max": 30,
+      "step": 1,
+      "default": 16,
+      "unit": "px",
+      "label": "Product title size"
+    },
+    {
+      "type": "color",
+      "id": "product_title_color",
+      "label": "Product title color",
+      "default": "#333333"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Show price",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "price_size",
+      "min": 12,
+      "max": 24,
+      "step": 1,
+      "default": 14,
+      "unit": "px",
+      "label": "Price size"
+    },
+    {
+      "type": "color",
+      "id": "price_color",
+      "label": "Price color",
+      "default": "#555555"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_button",
+      "label": "Show button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "View Product"
+    },
+    {
+      "type": "color",
+      "id": "button_color",
+      "label": "Button color",
+      "default": "#e60000"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_color",
+      "label": "Button hover color",
+      "default": "#cc0000"
+    },
+    {
+      "type": "range",
+      "id": "button_border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "default": 4,
+      "unit": "px",
+      "label": "Button border radius"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 16,
+      "max": 60,
+      "step": 2,
+      "default": 28,
+      "unit": "px",
+      "label": "Heading size"
+    },
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "text_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "default": 16,
+      "unit": "px",
+      "label": "Text size"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#555555"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Red Products"
+    }
+  ]
+}
 {% endschema %}
