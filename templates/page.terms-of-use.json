@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "products": {
+            "type": "products"
+        }
+    },
+    "layout": "page.terms-of-use",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "products"
+    ]
+}
