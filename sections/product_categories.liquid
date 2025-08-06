@@ -1,0 +1,309 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-huge">
+              <div class="margin-bottom margin-xlarge">
+                <div class="align-center text-align-center max-width-custom1">
+                  <div class="margin-bottom margin-small">
+                    <div class="button-group is-center">
+                      <div class="tag-wrapper">
+                        <div class="text-size-tiny text-weight-semibold text-style-allcaps">
+                          <div>✼</div>
+                        </div>
+                        <div class="text-size-tiny text-weight-semibold text-style-allcaps">
+                          <div>
+{{ section.settings.text_tagline }}
+</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h2>
+{{ section.settings.text_heading }}
+</h2>
+                </div>
+              </div>
+              <div slider-duration="1000" loop-mode="true" class="slider-cat_component">
+                <div class="slider-main_inner-wrapper">
+                  <div class="swiper is-slider-cat">
+                    <div class="swiper-wrapper is-slider-cat">
+                      {% for block in section.blocks %}
+    {% if block.type == "choose-your-path-item" %}
+                    <div li-block="Choose Your Path Item" class="swiper-slide is-slider-main">
+                                    
+                        
+                                    <div class="swiper-saber-wrapper">{% if block.settings.image_preview_image %}
+{{ block.settings.image_preview_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'Product_1.png' | asset_url }}" loading="lazy" alt="">
+{% endif %}
+                          <div class="swiper-icon-wrapper">{% if block.settings.image_icon_image %}
+{{ block.settings.image_icon_image | image_url: width: 1000 | image_tag: loading: 'lazy' }}
+{% else %}
+<img src="{{ 'image-14.png' | asset_url }}" loading="lazy" alt="">
+{% endif %}</div>
+                          <a href="{{ block.settings.url_link }}" class="swiper-saber-description w-inline-block"> <div class="swiper-saber-description-bg">{% if block.settings.image_background_color_image %} {{ block.settings.image_background_color_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'image-absolute bot' }} {% else %} <img src="{{ 'Rectangle-3463291.png' | asset_url }}" loading="lazy" alt="" class="image-absolute bot"> {% endif %}<img src="{{ 'Background.svg' | asset_url }}" loading="lazy" alt="" class="fill-image"></div> <div class="swiper-saber-description-content"> <div> <div class="margin-bottom margin-xsmall"> <div class="swiper-saber-descriptin_heading"> <div class="heading-style-h6 text-style-allcaps">{{ block.settings.text_name }}</div> <div class="icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M10.0002 1.66683C5.41683 1.66683 1.66683 5.41683 1.66683 10.0002C1.66683 14.5835 5.41683 18.3335 10.0002 18.3335C14.5835 18.3335 18.3335 14.5835 18.3335 10.0002C18.3335 5.41683 14.5835 1.66683 10.0002 1.66683Z" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9.99951 13.3335L9.99951 9.16683" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M10.0044 6.66675L9.99691 6.66675" stroke="#8F8D99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path> </svg></div> </div> </div> <div class="text-size-tiny text-color-grey">{{ block.settings.text_product_count }}</div> </div> <div class="swiper-saber-description_bot"> <div> <div class="margin-bottom margin-xxsmall"> <div class="text-size-tiny text-color-grey text-style-allcaps">STARTS FROM:</div> </div> <div class="price-wrap"> <div class="text-weight-semibold">{{ block.settings.text_discounted_price }}</div> <div class="text-size-tiny text-weight-medium text-color-grey text-style-strikethrough">{{ block.settings.text_original_price }}</div> </div> </div> <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 28 28" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img"> <rect width="28" height="28" rx="14" fill="#3A3333"></rect> <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9712 14.4715C17.0962 14.3464 17.1664 14.1769 17.1664 14.0001C17.1664 13.8233 17.0962 13.6538 16.9712 13.5288L13.1999 9.75746C13.1384 9.69378 13.0648 9.64299 12.9835 9.60806C12.9022 9.57312 12.8147 9.55473 12.7262 9.55396C12.6377 9.55319 12.5499 9.57006 12.4679 9.60358C12.386 9.6371 12.3116 9.6866 12.249 9.74919C12.1864 9.81179 12.1369 9.88622 12.1034 9.96815C12.0698 10.0501 12.053 10.1379 12.0537 10.2264C12.0545 10.3149 12.0729 10.4024 12.1078 10.4837C12.1428 10.5651 12.1936 10.6386 12.2572 10.7001L15.5572 14.0001L12.2572 17.3001C12.1358 17.4259 12.0686 17.5943 12.0701 17.7691C12.0716 17.9439 12.1418 18.1111 12.2654 18.2347C12.389 18.3583 12.5562 18.4284 12.731 18.4299C12.9058 18.4314 13.0742 18.3642 13.1999 18.2428L16.9712 14.4715Z" fill="white"></path> </svg></div> </div> </div> </a>
+                        </div>
+                                    
+                      
+                            </div>
+            {% endif %}
+{% endfor %}
+                      <div class="swiper-slide is-slider-main">
+                        <div class="swiper-saber-wrapper"><img src="{{ 'Product.png' | asset_url }}" loading="lazy" alt="">
+                          <div class="swiper-icon-wrapper"><img src="{{ 'image-15.png' | asset_url }}" loading="lazy" alt=""></div>
+                          <div class="swiper-saber-description">
+                            <div class="swiper-saber-description-bg"><img src="{{ 'Rectangle-3463291-1.png' | asset_url }}" loading="lazy" alt="" class="image-absolute bot"><img src="{{ 'Background.svg' | asset_url }}" loading="lazy" alt="" class="fill-image"></div>
+                            <div class="swiper-saber-description-content">
+                              <div>
+                                <div class="margin-bottom margin-xsmall">
+                                  <div class="swiper-saber-descriptin_heading">
+                                    <div class="heading-style-h6 text-style-allcaps">legends</div>
+                                    <div class="icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.0002 1.66683C5.41683 1.66683 1.66683 5.41683 1.66683 10.0002C1.66683 14.5835 5.41683 18.3335 10.0002 18.3335C14.5835 18.3335 18.3335 14.5835 18.3335 10.0002C18.3335 5.41683 14.5835 1.66683 10.0002 1.66683Z" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9.99951 13.3335L9.99951 9.16683" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.0044 6.66675L9.99691 6.66675" stroke="#8F8D99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg></div>
+                                  </div>
+                                </div>
+                                <div class="text-size-tiny text-color-grey">16+ Products</div>
+                              </div>
+                              <div class="swiper-saber-description_bot">
+                                <div>
+                                  <div class="margin-bottom margin-xxsmall">
+                                    <div class="text-size-tiny text-color-grey text-style-allcaps">STARTS FROM:</div>
+                                  </div>
+                                  <div class="price-wrap">
+                                    <div class="text-weight-semibold">$499.99</div>
+                                    <div class="text-size-tiny text-weight-medium text-color-grey text-style-strikethrough">$679.99</div>
+                                  </div>
+                                </div>
+                                <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 28 28" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                    <rect width="28" height="28" rx="14" fill="#3A3333"></rect>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9712 14.4715C17.0962 14.3464 17.1664 14.1769 17.1664 14.0001C17.1664 13.8233 17.0962 13.6538 16.9712 13.5288L13.1999 9.75746C13.1384 9.69378 13.0648 9.64299 12.9835 9.60806C12.9022 9.57312 12.8147 9.55473 12.7262 9.55396C12.6377 9.55319 12.5499 9.57006 12.4679 9.60358C12.386 9.6371 12.3116 9.6866 12.249 9.74919C12.1864 9.81179 12.1369 9.88622 12.1034 9.96815C12.0698 10.0501 12.053 10.1379 12.0537 10.2264C12.0545 10.3149 12.0729 10.4024 12.1078 10.4837C12.1428 10.5651 12.1936 10.6386 12.2572 10.7001L15.5572 14.0001L12.2572 17.3001C12.1358 17.4259 12.0686 17.5943 12.0701 17.7691C12.0716 17.9439 12.1418 18.1111 12.2654 18.2347C12.389 18.3583 12.5562 18.4284 12.731 18.4299C12.9058 18.4314 13.0742 18.3642 13.1999 18.2428L16.9712 14.4715Z" fill="white"></path>
+                                  </svg></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide is-slider-main">
+                        <div class="swiper-saber-wrapper"><img src="{{ 'Product2.png' | asset_url }}" loading="lazy" alt="">
+                          <div class="swiper-icon-wrapper"><img src="{{ 'image-16.png' | asset_url }}" loading="lazy" alt=""></div>
+                          <div class="swiper-saber-description">
+                            <div class="swiper-saber-description-bg"><img src="{{ 'Rectangle-3463291-2.png' | asset_url }}" loading="lazy" alt="" class="image-absolute bot"><img src="{{ 'Background.svg' | asset_url }}" loading="lazy" alt="" class="fill-image"></div>
+                            <div class="swiper-saber-description-content">
+                              <div>
+                                <div class="margin-bottom margin-xsmall">
+                                  <div class="swiper-saber-descriptin_heading">
+                                    <div class="heading-style-h6 text-style-allcaps">bundles</div>
+                                    <div class="icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.0002 1.66683C5.41683 1.66683 1.66683 5.41683 1.66683 10.0002C1.66683 14.5835 5.41683 18.3335 10.0002 18.3335C14.5835 18.3335 18.3335 14.5835 18.3335 10.0002C18.3335 5.41683 14.5835 1.66683 10.0002 1.66683Z" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9.99951 13.3335L9.99951 9.16683" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.0044 6.66675L9.99691 6.66675" stroke="#8F8D99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg></div>
+                                  </div>
+                                </div>
+                                <div class="text-size-tiny text-color-grey">12+ Products</div>
+                              </div>
+                              <div class="swiper-saber-description_bot">
+                                <div>
+                                  <div class="margin-bottom margin-xxsmall">
+                                    <div class="text-size-tiny text-color-grey text-style-allcaps">STARTS FROM:</div>
+                                  </div>
+                                  <div class="price-wrap">
+                                    <div class="text-weight-semibold">$569.99</div>
+                                    <div class="text-size-tiny text-weight-medium text-color-grey text-style-strikethrough">$749.99</div>
+                                  </div>
+                                </div>
+                                <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 28 28" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                    <rect width="28" height="28" rx="14" fill="#3A3333"></rect>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9712 14.4715C17.0962 14.3464 17.1664 14.1769 17.1664 14.0001C17.1664 13.8233 17.0962 13.6538 16.9712 13.5288L13.1999 9.75746C13.1384 9.69378 13.0648 9.64299 12.9835 9.60806C12.9022 9.57312 12.8147 9.55473 12.7262 9.55396C12.6377 9.55319 12.5499 9.57006 12.4679 9.60358C12.386 9.6371 12.3116 9.6866 12.249 9.74919C12.1864 9.81179 12.1369 9.88622 12.1034 9.96815C12.0698 10.0501 12.053 10.1379 12.0537 10.2264C12.0545 10.3149 12.0729 10.4024 12.1078 10.4837C12.1428 10.5651 12.1936 10.6386 12.2572 10.7001L15.5572 14.0001L12.2572 17.3001C12.1358 17.4259 12.0686 17.5943 12.0701 17.7691C12.0716 17.9439 12.1418 18.1111 12.2654 18.2347C12.389 18.3583 12.5562 18.4284 12.731 18.4299C12.9058 18.4314 13.0742 18.3642 13.1999 18.2428L16.9712 14.4715Z" fill="white"></path>
+                                  </svg></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide is-slider-main">
+                        <div class="swiper-saber-wrapper"><img src="{{ 'Product_2.png' | asset_url }}" loading="lazy" alt="">
+                          <div class="swiper-icon-wrapper"><img src="{{ 'image-18.png' | asset_url }}" loading="lazy" alt=""></div>
+                          <div class="swiper-saber-description">
+                            <div class="swiper-saber-description-bg"><img src="{{ 'Rectangle-3463291-3.png' | asset_url }}" loading="lazy" alt="" class="image-absolute bot"><img src="{{ 'Background.svg' | asset_url }}" loading="lazy" alt="" class="fill-image"></div>
+                            <div class="swiper-saber-description-content">
+                              <div>
+                                <div class="margin-bottom margin-xsmall">
+                                  <div class="swiper-saber-descriptin_heading">
+                                    <div class="heading-style-h6 text-style-allcaps">accessories</div>
+                                    <div class="icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.0002 1.66683C5.41683 1.66683 1.66683 5.41683 1.66683 10.0002C1.66683 14.5835 5.41683 18.3335 10.0002 18.3335C14.5835 18.3335 18.3335 14.5835 18.3335 10.0002C18.3335 5.41683 14.5835 1.66683 10.0002 1.66683Z" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9.99951 13.3335L9.99951 9.16683" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.0044 6.66675L9.99691 6.66675" stroke="#8F8D99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg></div>
+                                  </div>
+                                </div>
+                                <div class="text-size-tiny text-color-grey">10+ Products</div>
+                              </div>
+                              <div class="swiper-saber-description_bot">
+                                <div>
+                                  <div class="margin-bottom margin-xxsmall">
+                                    <div class="text-size-tiny text-color-grey text-style-allcaps">STARTS FROM:</div>
+                                  </div>
+                                  <div class="price-wrap">
+                                    <div class="text-weight-semibold">$349.99</div>
+                                    <div class="text-size-tiny text-weight-medium text-color-grey text-style-strikethrough">$449.99</div>
+                                  </div>
+                                </div>
+                                <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 28 28" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                    <rect width="28" height="28" rx="14" fill="#3A3333"></rect>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9712 14.4715C17.0962 14.3464 17.1664 14.1769 17.1664 14.0001C17.1664 13.8233 17.0962 13.6538 16.9712 13.5288L13.1999 9.75746C13.1384 9.69378 13.0648 9.64299 12.9835 9.60806C12.9022 9.57312 12.8147 9.55473 12.7262 9.55396C12.6377 9.55319 12.5499 9.57006 12.4679 9.60358C12.386 9.6371 12.3116 9.6866 12.249 9.74919C12.1864 9.81179 12.1369 9.88622 12.1034 9.96815C12.0698 10.0501 12.053 10.1379 12.0537 10.2264C12.0545 10.3149 12.0729 10.4024 12.1078 10.4837C12.1428 10.5651 12.1936 10.6386 12.2572 10.7001L15.5572 14.0001L12.2572 17.3001C12.1358 17.4259 12.0686 17.5943 12.0701 17.7691C12.0716 17.9439 12.1418 18.1111 12.2654 18.2347C12.389 18.3583 12.5562 18.4284 12.731 18.4299C12.9058 18.4314 13.0742 18.3642 13.1999 18.2428L16.9712 14.4715Z" fill="white"></path>
+                                  </svg></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide is-slider-main">
+                        <div class="swiper-saber-wrapper"><img src="{{ 'Product_3.png' | asset_url }}" loading="lazy" alt="">
+                          <div class="swiper-icon-wrapper"><img src="{{ 'image-17.png' | asset_url }}" loading="lazy" alt=""></div>
+                          <div class="swiper-saber-description">
+                            <div class="swiper-saber-description-bg"><img src="{{ 'Rectangle-3463291_1.png' | asset_url }}" loading="lazy" alt="" class="image-absolute bot"><img src="{{ 'Background.svg' | asset_url }}" loading="lazy" alt="" class="fill-image"></div>
+                            <div class="swiper-saber-description-content">
+                              <div>
+                                <div class="margin-bottom margin-xsmall">
+                                  <div class="swiper-saber-descriptin_heading">
+                                    <div class="heading-style-h6 text-style-allcaps">prequels</div>
+                                    <div class="icon w-embed"><svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M10.0002 1.66683C5.41683 1.66683 1.66683 5.41683 1.66683 10.0002C1.66683 14.5835 5.41683 18.3335 10.0002 18.3335C14.5835 18.3335 18.3335 14.5835 18.3335 10.0002C18.3335 5.41683 14.5835 1.66683 10.0002 1.66683Z" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M9.99951 13.3335L9.99951 9.16683" stroke="#8F8D99" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
+                                        <path d="M10.0044 6.66675L9.99691 6.66675" stroke="#8F8D99" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg></div>
+                                  </div>
+                                </div>
+                                <div class="text-size-tiny text-color-grey">32+ Products</div>
+                              </div>
+                              <div class="swiper-saber-description_bot">
+                                <div>
+                                  <div class="margin-bottom margin-xxsmall">
+                                    <div class="text-size-tiny text-color-grey text-style-allcaps">STARTS FROM:</div>
+                                  </div>
+                                  <div class="price-wrap">
+                                    <div class="text-weight-semibold">$529.99</div>
+                                    <div class="text-size-tiny text-weight-medium text-color-grey text-style-strikethrough">$729.99</div>
+                                  </div>
+                                </div>
+                                <div class="icon-embed-xsmall w-embed"><svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewbox="0 0 28 28" fill="none" preserveaspectratio="xMidYMid meet" aria-hidden="true" role="img">
+                                    <rect width="28" height="28" rx="14" fill="#3A3333"></rect>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.9712 14.4715C17.0962 14.3464 17.1664 14.1769 17.1664 14.0001C17.1664 13.8233 17.0962 13.6538 16.9712 13.5288L13.1999 9.75746C13.1384 9.69378 13.0648 9.64299 12.9835 9.60806C12.9022 9.57312 12.8147 9.55473 12.7262 9.55396C12.6377 9.55319 12.5499 9.57006 12.4679 9.60358C12.386 9.6371 12.3116 9.6866 12.249 9.74919C12.1864 9.81179 12.1369 9.88622 12.1034 9.96815C12.0698 10.0501 12.053 10.1379 12.0537 10.2264C12.0545 10.3149 12.0729 10.4024 12.1078 10.4837C12.1428 10.5651 12.1936 10.6386 12.2572 10.7001L15.5572 14.0001L12.2572 17.3001C12.1358 17.4259 12.0686 17.5943 12.0701 17.7691C12.0716 17.9439 12.1418 18.1111 12.2654 18.2347C12.389 18.3583 12.5562 18.4284 12.731 18.4299C12.9058 18.4314 13.0742 18.3642 13.1999 18.2428L16.9712 14.4715Z" fill="white"></path>
+                                  </svg></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="#" class="slider-main_arrow swiper-prev w-inline-block">
+                    <div class="icon w-embed"><svg width="66" height="120" viewbox="0 0 66 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.70523 60.0028C8.71325 60.0115 26.4289 79.2431 26.4289 79.2431L26.4609 88.7281L0.34891 60.3818C0.34891 60.3818 0.172389 60.1901 -0.000113837 60.0028C0.172389 59.8112 0.34891 59.624 0.34891 59.624L26.4609 31.2732L26.4289 40.7627L8.70523 60.0028Z" fill="#D7D7D7"></path>
+                        <path d="M40.4176 105.612C45.6568 111.3 53.6762 120.001 53.6762 120.001C53.6762 120.001 59.1281 120.001 62.1328 120.001C63.2761 120.001 64.0664 120.001 64.0664 120.001L50.8118 105.612C50.8118 105.612 44.1203 105.612 40.4176 105.612Z" fill="#D7D7D7"></path>
+                        <path d="M30.958 60.0044C30.958 60.1569 30.958 60.3136 30.958 60.3136L30.9581 79.4363C30.9581 79.4363 33.5897 82.2888 37.2684 86.2823C45.8293 95.5758 60.0708 111.036 60.0708 111.036L60.0708 114.002L51.2892 104.469L45.1714 104.469C45.1714 104.469 31.4395 89.5616 27.8971 85.7161C27.8971 83.2512 27.8971 77.9904 27.8971 77.9904L11.6137 60.3136C11.6137 60.3136 11.4693 60.1569 11.3249 60.0044C11.4693 59.8477 11.6137 59.6952 11.6137 59.6952L27.8971 42.0184C27.8971 42.0184 27.8971 36.7533 27.8971 34.2927C31.4395 30.4429 45.1714 15.536 45.1714 15.536L51.2892 15.536L60.0708 6.00293L60.0708 8.96864C60.0708 8.96864 45.8293 24.4288 37.2684 33.7222C33.5897 37.7157 30.958 40.5726 30.958 40.5726L30.958 59.6952C30.958 59.6952 30.958 59.8477 30.958 60.0044Z" fill="#D7D7D7"></path>
+                        <path d="M64.0664 0.000976562C64.0664 0.000976562 63.2761 0.000976632 62.1328 0.000976732C59.1281 0.000976994 53.6762 0.000977471 53.6762 0.000977471C53.6762 0.000977471 45.6568 8.70658 40.4176 14.3942C44.1203 14.3942 50.8118 14.3942 50.8118 14.3942L64.0664 0.000976562Z" fill="#D7D7D7"></path>
+                        <path d="M44.1925 59.6945L44.1925 44.2823L65.9559 20.661L66 10.9712L37.6214 41.7739L37.6214 59.6945L37.6214 60.3129L37.6214 78.2292L66 109.036L65.9559 99.3464L44.1925 75.7208L44.1925 60.3129L44.1925 59.6945Z" fill="#D7D7D7"></path>
+                      </svg></div>
+                  </a>
+                  <a href="#" class="slider-main_arrow swiper-next w-inline-block">
+                    <div class="icon w-embed"><svg width="66" height="120" viewbox="0 0 66 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M57.2948 60.0019C57.2867 60.0106 39.5711 79.2421 39.5711 79.2421L39.5391 88.7271L65.6511 60.3808C65.6511 60.3808 65.8276 60.1891 66.0001 60.0019C65.8276 59.8102 65.6511 59.623 65.6511 59.623L39.5391 31.2722L39.5711 40.7617L57.2948 60.0019Z" fill="currentColor"></path>
+                        <path d="M25.5824 105.611C20.3432 111.299 12.3238 120 12.3238 120C12.3238 120 6.87194 120 3.86719 120C2.72386 120 1.93359 120 1.93359 120L15.1882 105.611C15.1882 105.611 21.8797 105.611 25.5824 105.611Z" fill="currentColor"></path>
+                        <path d="M35.042 60.0035C35.042 60.1559 35.042 60.3126 35.042 60.3126L35.0419 79.4353C35.0419 79.4353 32.4103 82.2878 28.7316 86.2813C20.1707 95.5748 5.92919 111.035 5.92919 111.035L5.92919 114.001L14.7108 104.468L20.8286 104.468C20.8286 104.468 34.5605 89.5606 38.1029 85.7152C38.1029 83.2502 38.1029 77.9894 38.1029 77.9894L54.3863 60.3126C54.3863 60.3126 54.5307 60.1559 54.6751 60.0035C54.5307 59.8467 54.3863 59.6943 54.3863 59.6943L38.1029 42.0175C38.1029 42.0175 38.1029 36.7523 38.1029 34.2918C34.5605 30.442 20.8286 15.535 20.8286 15.535L14.7108 15.535L5.9292 6.00195L5.9292 8.96766C5.9292 8.96766 20.1707 24.4278 28.7316 33.7213C32.4103 37.7148 35.042 40.5717 35.042 40.5717L35.042 59.6943C35.042 59.6943 35.042 59.8467 35.042 60.0035Z" fill="currentColor"></path>
+                        <path d="M1.93359 0C1.93359 0 2.72386 6.90875e-08 3.86719 1.6904e-07C6.87194 4.31724e-07 12.3238 9.08344e-07 12.3238 9.08344e-07C12.3238 9.08344e-07 20.3432 8.70561 25.5824 14.3932C21.8797 14.3932 15.1882 14.3932 15.1882 14.3932L1.93359 0Z" fill="currentColor"></path>
+                        <path d="M21.8075 59.6935L21.8075 44.2813L0.0441119 20.66L0 10.9702L28.3786 41.7729L28.3786 59.6935L28.3786 60.3119L28.3786 78.2282L-8.57312e-06 109.035L0.0441051 99.3454L21.8075 75.7198L21.8075 60.3119L21.8075 59.6935Z" fill="currentColor"></path>
+                      </svg></div>
+                  </a>
+                </div>
+                <div class="slider-main_bg-wrap"><img src="{{ 'Frame-1707480396.svg' | asset_url }}" loading="lazy" alt=""></div>
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "div",
+    "name": "product-categories",
+    "class": "section_products",
+    "blocks": [
+        {
+            "name": "Choose Your Path Item",
+            "type": "choose-your-path-item",
+            "settings": [
+                {
+                    "id": "image_preview_image",
+                    "type": "image_picker",
+                    "label": "Preview Image"
+                },
+                {
+                    "id": "image_icon_image",
+                    "type": "image_picker",
+                    "label": "Icon Image"
+                },
+                {
+                    "id": "url_link",
+                    "type": "url",
+                    "label": "Link"
+                },
+                {
+                    "id": "image_background_color_image",
+                    "type": "image_picker",
+                    "label": "Background Color Image"
+                },
+                {
+                    "id": "text_name",
+                    "type": "text",
+                    "label": "Name",
+                    "default": "originals"
+                },
+                {
+                    "id": "text_product_count",
+                    "type": "text",
+                    "label": "Product Count",
+                    "default": "16+ Products"
+                },
+                {
+                    "id": "text_discounted_price",
+                    "type": "text",
+                    "label": "Discounted Price",
+                    "default": "$499.99"
+                },
+                {
+                    "id": "text_original_price",
+                    "type": "text",
+                    "label": "Original Price",
+                    "default": "$679.99"
+                }
+            ]
+        }
+    ],
+    "settings": [
+        {
+            "id": "text_tagline",
+            "type": "text",
+            "label": "Tagline",
+            "default": "product categories"
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "Choose your path"
+        }
+    ],
+    "presets": [
+        {
+            "name": "product-categories",
+            "category": "Liquify",
+            "blocks": [
+                {
+                    "type": "choose-your-path-item"
+                }
+            ]
+        }
+    ]
+} {% endschema %}
