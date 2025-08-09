@@ -1,3 +1,154 @@
-<div data-animation="over-left" class="navbar3_component w-nav" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium" data-w-id="6ba7b0c5-b1ce-dd0a-a767-fe7958ad4dd0" role="banner" data-duration="400"><div class="navbar3_container-wrap"><div class="navbar3_container"><div class="navbar3_menu-button w-nav-button"><div class="menu-icon3"><div class="menu-icon3_line-top"></div><div class="menu-icon3_line-middle"></div><div class="menu-icon3_line-bottom"></div></div></div><div class="w-locales-list"><div role="list" class="w-locales-items"><div role="listitem" class="locale w-locales-item"><a hreflang="en" href="../shop/product.html" aria-current="page">English</a></div></div></div><a href="#" class="navbar3_logo-link w-nav-brand"><img loading="lazy" src="{{ 'Logo.png' | asset_url }}" alt="" class="navbar3_logo">
-</a><a id="w-node-_6ba7b0c5-b1ce-dd0a-a767-fe7958ad4dee-b641c10b" href="#" class="button is-navbar3-button w-button">Button</a></div></div><div class="navbar3_container-wrap"><div class="navbar3_container"><nav role="navigation" id="w-node-_1f1ed3dc-4f4a-565d-6bfe-5d27363f2b8e-b641c10b" class="navbar3_menu w-nav-menu"><a href="#" class="navbar3_logo-link-menu w-nav-brand"><img loading="eager" src="{{ 'Logo-wide.svg' | asset_url }}" alt="" class="navbar3_logo">
-</a><a href="#" class="navbar3_link w-nav-link">Link One</a><a href="#" class="navbar3_link w-nav-link">Link Two</a><div data-delay="200" data-hover="true" data-w-id="1f1ed3dc-4f4a-565d-6bfe-5d27363f2b95" class="navbar3_menu-dropdown w-dropdown"><div class="navbar3_dropdown-toggle w-dropdown-toggle"><div>Link Three</div><div class="dropdown-chevron w-embed"><svg width=" 100%" height=" 100%" viewbox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.55806 6.29544C2.46043 6.19781 2.46043 6.03952 2.55806 5.94189L3.44195 5.058C3.53958 4.96037 3.69787 4.96037 3.7955 5.058L8.00001 9.26251L12.2045 5.058C12.3021 4.96037 12.4604 4.96037 12.5581 5.058L13.4419 5.94189C13.5396 6.03952 13.5396 6.19781 13.4419 6.29544L8.17678 11.5606C8.07915 11.6582 7.92086 11.6582 7.82323 11.5606L2.55806 6.29544Z" fill="currentColor"></path></svg></div></div><nav class="navbar3_dropdown-list w-dropdown-list"><a href="#" class="navbar3_dropdown-link w-dropdown-link">Link Four</a><a href="#" class="navbar3_dropdown-link w-dropdown-link">Link Five</a><a href="#" class="navbar3_dropdown-link w-dropdown-link">Link Six</a></nav></div><a href="#" class="navbar3_tablet-menu-button w-button">Button</a></nav><div class="navbar3_menu-background"></div></div></div></div> {% schema %} {"tag":"div","name":"header","class":"section_navbar","presets":[{"name":"header","category":"Liquify","blocks":[]}]} {% endschema %}
+<div data-animation="over-left" class="navbar3_component w-nav" data-easing2="ease" fs-scrolldisable-element="smart-nav" data-easing="ease" data-collapse="medium" data-w-id="6ba7b0c5-b1ce-dd0a-a767-fe7958ad4dd0" role="banner" data-duration="400">
+          <div class="navbar3_container-wrap">
+            <div class="navbar3_container top">
+              <div class="navbar3_menu-button w-nav-button">
+                <div class="menu-icon3">
+                  <div class="menu-icon3_line-top"></div>
+                  <div class="menu-icon3_line-middle"></div>
+                  <div class="menu-icon3_line-bottom"></div>
+                </div>
+              </div>
+              <div class="w-locales-list">
+                <div role="list" class="w-locales-items">
+                  <div role="listitem" class="locale w-locales-item">
+                    <a hreflang="en" href="user-guide.html" aria-current="page">English</a>
+                  </div>
+                </div>
+              </div>
+              <a href="index.html" class="navbar3_logo-link w-nav-brand"><img sizes="(max-width: 479px) 98vw, (max-width: 767px) 99vw, (max-width: 2656px) 100vw, 2656px" srcset="{{ '6561927d7eca724159703f5867c9885c_Logo-p-500.png' | asset_url }} 500w, {{ '6561927d7eca724159703f5867c9885c_Logo-p-800.png' | asset_url }} 800w, {{ '6561927d7eca724159703f5867c9885c_Logo-p-1080.png' | asset_url }} 1080w, {{ '6561927d7eca724159703f5867c9885c_Logo-p-1600.png' | asset_url }} 1600w, {{ '6561927d7eca724159703f5867c9885c_Logo-p-2000.png' | asset_url }} 2000w, {{ 'Logo.png' | asset_url }} 2656w" alt="" src="{{ 'Logo.png' | asset_url }}" loading="lazy" class="navbar3_logo"></a>
+              <a id="w-node-_6ba7b0c5-b1ce-dd0a-a767-fe7958ad4dee-b641c10b" href="#" class="button is-navbar3-button w-button">Button</a>
+            </div>
+          </div>
+          <div class="navbar3_container-wrap">
+            <nav role="navigation" id="w-node-_1f1ed3dc-4f4a-565d-6bfe-5d27363f2b8e-b641c10b" class="navbar3_menu w-nav-menu">
+              <a href="#" class="navbar3_logo-link-menu w-nav-brand"><img loading="eager" src="{{ 'Logo-wide.svg' | asset_url }}" alt="" class="navbar3_logo"></a>
+              <a href="#" class="navbar3_tablet-menu-button w-button">Button</a>
+              <div>
+                {% for link in linklists['main-menu'].links %}    <div data-delay="300" data-hover="true" li-for="link in linklists['main-menu'].links" data-w-id="866c29b1-c9a9-9635-764b-88d7c5bf50b2" class="navbar_menu-dropdown w-dropdown">
+                                    
+                  
+                            <div class="navbar_dropdown-toggle w-dropdown-toggle">
+                    <div class="navbar_dropdown-line"></div>
+                    <a li-object:href="link.url" href="{{ link.url }}" class="w-inline-block">
+                      <div li-object="link.title">{{ link.title }}</div>
+                    </a>
+                  </div>
+                            
+                  
+                            {% if link.links.size > 0  %}    <nav li-if="link.links.size > 0 " class="navbar10_dropdown-list w-dropdown-list">
+    
+                    <div class="navbar-fix"></div>
+                    <div class="navbar10_dropdown-content">
+                      {% for child_link in link.links %}    <div data-delay="300" data-hover="true" li-for="child_link in link.links" data-w-id="866c29b1-c9a9-9635-764b-88d7c5bf50b9" class="navbar_dropdown-secondary is-first w-dropdown">
+                                    
+                        
+                            <div class="navbar_submenu-title-block is-submenu w-dropdown-toggle">
+                          <div li-object="child_link.title" class="text-color-white">{{ child_link.title }}</div><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewbox="0 0 13 11" fill="none" class="colors-traingle-simple">
+                            <path d="M13.0001 9.99999C13.0001 10.5523 12.5524 11 12.0001 11L11.362 11C11.1311 11 10.9073 10.9201 10.7286 10.7738L0.376217 2.30007C0.144179 2.11014 0.00961796 1.82611 0.00961793 1.52625L0.00961786 0.750001C0.00961781 0.197717 0.457333 -0.249998 1.00962 -0.249998L12 -0.249999C12.5523 -0.249999 13 0.197712 13 0.749994L13.0001 9.99999Z" fill="currentColor"></path>
+                          </svg>
+                          <div class="lightsaber-color-block-link"></div>
+                          <a li-object:href="child_link.url" href="{{ child_link.url }}" class="link-overlay w-inline-block"></a>
+                        </div>
+                            
+                        
+                            {% if child_link.links.size > 0 %}    <nav li-if="child_link.links.size > 0" class="navba_submenu-dropdown-list w-dropdown-list">
+    
+                          <div class="navbar10_dropdown-content-right">
+                            <div class="navbar_submenu-left-part">
+                              <div class="navbar_submenu-grid">
+                                {% for grandchild_link in child_link.links %}    <div li-for="grandchild_link in child_link.links">
+                                    
+                                  
+                            <a li-object:href="grandchild_link.url" href="{{ grandchild_link.url }}" class="navbar_submenu-large-title w-inline-block">
+                                    <div li-object="grandchild_link.title">{{ grandchild_link.title }}</div>
+                                  </a>
+                            
+                                
+                        </div>
+{% endfor %}
+                              </div>
+                            </div>
+                            {% if child_link.title | downcase == 'categories' %}    <div li-if="child_link.title | downcase == 'categories'" class="navbar_submenu-divider">
+        </div>
+{% endif %}
+                            {% if child_link.title | downcase == 'categories' %}    <div li-if="child_link.title | downcase == 'categories'" class="navbar_submenu-right">
+    
+                              <div class="navbar_submenu-vertical">
+                                <div class="navbar_submenu-wrapper">
+                                  <div>
+                                    <div class="padding-bottom padding-xsmall">
+                                      <div>Blade type</div>
+                                    </div>
+                                    <div class="navbar_submenu-wrap">
+                                      <a href="/sabers/single-bladed" class="navbar_submenu-small-title w-inline-block">
+                                        <div>Single Bladed</div>
+                                      </a>
+                                      <a href="/sabers/double-bladed" class="navbar_submenu-small-title w-inline-block">
+                                        <div>Double Bladed</div>
+                                      </a>
+                                      <a href="/sabers/triple-bladed" class="navbar_submenu-small-title w-inline-block">
+                                        <div>Triple Bladed</div>
+                                      </a>
+                                    </div>
+                                  </div>
+                                  <div>
+                                    <div class="padding-bottom padding-xsmall">
+                                      <div>Buttons</div>
+                                    </div>
+                                    <div class="navbar_submenu-wrap">
+                                      <a href="/sabers/single-button" class="navbar_submenu-small-title w-inline-block">
+                                        <div>Single Button</div>
+                                      </a>
+                                      <a href="/sabers/double-button" class="navbar_submenu-small-title w-inline-block">
+                                        <div>Double Button</div>
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <a href="product-template.html" class="navbar_link-block w-inline-block">
+                                  <div>All Categories</div>
+                                  <div class="w-embed"><svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M7.5 15L12.5 9.99997L7.5 4.99997" stroke="#FF4545" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"></path>
+                                    </svg></div>
+                                </a>
+                              </div>
+                              <div class="collection-list-wrapper w-dyn-list">
+                                <div role="list" class="navbar_submenu-featured-wrapper w-dyn-items">
+                                  <div role="listitem" class="navbar_submenu-featured w-dyn-item"></div>
+                                </div>
+                                <div class="w-dyn-empty">
+                                  <div>No items found.</div>
+                                </div>
+                              </div>
+                                </div>
+{% endif %}
+                          </div>
+                            </nav>
+{% endif %}
+                            
+                      
+                        </div>
+{% endfor %}
+                    </div>
+                      </nav>
+{% endif %}
+                            
+                
+                        </div>
+{% endfor %}
+              </div>
+            </nav>
+            <div class="navbar3_menu-background"></div>
+          </div>
+        </div> {% schema %} {
+    "tag": "div",
+    "name": "header",
+    "class": "section_navbar",
+    "presets": [
+        {
+            "name": "header",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}

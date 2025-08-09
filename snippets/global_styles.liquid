@@ -1,4 +1,5 @@
-<style>[li-cloak_disabled="hide"]  { display: none !important; }
+<style>
+  [li-cloak_disabled="hide"]  { display: none !important; }
   [x-cloak] { display: none !important; }
   html { font-size: calc(0.8125rem + 0.20833333333333331vw); }
   @media screen and (max-width:1920px) { html { font-size: calc(0.8125rem + 0.20833333333333337vw); } }
@@ -51,7 +52,6 @@
   a,
   .w-input,
   .w-select,
-  .w-tab-link,
   .w-nav-link,
   .w-dropdown-btn,
   .w-dropdown-toggle,
@@ -72,6 +72,13 @@
     display: -webkit-box;
     overflow: hidden;
     -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  /* Apply "..." after 2 lines of text */
+  .text-style-1line {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
   }
   /* Adds inline flex display */
@@ -181,4 +188,14 @@
 .swiper-slide {
 	height: auto !important;
 }
+@media (min-width: 720px) {
+  /* Reverse content direction for every even item */
+  .feature-layout_item:nth-child(even) {
+    direction: rtl;
+  }
+  .feature-layout_item:nth-child(even) > * {
+    direction: ltr; /* reset for text flow */
+  }
+}
 </style>
+      <audio id="bg-audio" src="https://cdn.jsdelivr.net/gh/DevNexusCreative/test-saber@9654f8610daa7a755aa1d0cc8987a588c289d34a/humming-lightsaber-101soundboards.mp3" loop="" preload="auto"></audio>

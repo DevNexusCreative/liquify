@@ -1,0 +1,20 @@
+{
+    "sections": {
+        "products": {
+            "type": "products"
+        },
+        "categories": {
+            "type": "categories"
+        },
+        "cta": {
+            "type": "cta"
+        }
+    },
+    "layout": "page.products",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "products",
+        "categories",
+        "cta"
+    ]
+}

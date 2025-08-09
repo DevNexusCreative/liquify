@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "products": {
+            "type": "products"
+        }
+    },
+    "layout": "page.privacy-policy",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "products"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "products": {
+            "type": "products"
+        }
+    },
+    "layout": "page.log-in",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "products"
+    ]
+}
