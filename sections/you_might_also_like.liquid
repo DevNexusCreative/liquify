@@ -1,0 +1,62 @@
+<div class="padding-global">
+          <div class="container-large">
+            <div class="padding-section-huge">
+              <div class="margin-bottom margin-xlarge">
+                <div class="align-center text-align-center max-width-custom1">
+                  <div class="margin-bottom margin-small">
+                    <div class="button-group is-center">
+                      <div class="tag-wrapper">
+                        <div class="text-size-tiny text-weight-semibold text-style-allcaps">
+                          <div>✼</div>
+                        </div>
+                        <div class="text-size-tiny text-weight-semibold text-style-allcaps">
+                          <div>
+{{ section.settings.text_tagline }}
+</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h2>
+{{ section.settings.text_heading }}
+</h2>
+                </div>
+              </div>
+              <div class="products_list">
+                {% for product in product.metafields.custom.related_products %}    <div li-for="product in product.metafields.custom.related_products">
+                                    
+                  
+                            {% render 'product_item', product: product %}
+                            
+                
+                        </div>
+{% endfor %}
+              </div>
+            </div>
+          </div>
+        </div> {% schema %} {
+    "tag": "div",
+    "name": "you-might-also-like",
+    "class": "section_products",
+    "settings": [
+        {
+            "id": "text_tagline",
+            "type": "text",
+            "label": "Tagline",
+            "default": "OTHER PRODUCTS"
+        },
+        {
+            "id": "text_heading",
+            "type": "text",
+            "label": "Heading",
+            "default": "You Might Also Like."
+        }
+    ],
+    "presets": [
+        {
+            "name": "you-might-also-like",
+            "category": "Liquify",
+            "blocks": []
+        }
+    ]
+} {% endschema %}
