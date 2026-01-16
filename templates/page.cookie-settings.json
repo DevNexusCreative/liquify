@@ -1,0 +1,12 @@
+{
+    "sections": {
+        "products": {
+            "type": "products"
+        }
+    },
+    "layout": "page.cookie-settings",
+    "wrapper": "main.main-wrapper",
+    "order": [
+        "products"
+    ]
+}
